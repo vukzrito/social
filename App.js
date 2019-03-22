@@ -12,13 +12,16 @@ import Home from './components/screens/Home';
 import Settings from './components/screens/Settings';
 import Search from './components/screens/Search';
 import Notifications from './components/screens/Notifications';
+import SelectImage from './components/screens/SelectImage';
 import { Icon } from 'react-native-elements';
 
 import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 
 
 const TabNavigator = createBottomTabNavigator({
-  Home: Home, Search: Search,
+  Home: Home,
+  Search: Search,
+  SelectImage: SelectImage,
   Settings: Settings,
   Notifications: Notifications
 }, {
@@ -34,7 +37,10 @@ const TabNavigator = createBottomTabNavigator({
             break;
           case 'Search':
             iconName = `search`;
-            break
+            break;
+          case 'SelectImage':
+            iconName = `plus-square`;
+            break;
           case 'Settings':
             iconName = `cog`;
             break;
@@ -44,7 +50,7 @@ const TabNavigator = createBottomTabNavigator({
         }
 
         // You can return any component that you like here!
-        return <Icon name={iconName} type='font-awesome' size={40} color={tintColor} />;
+        return <Icon name={iconName} type='font-awesome' size={40} color={tintColor} solid/>;
       },
     }),
     tabBarOptions: {
