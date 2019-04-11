@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, ActivityIndicator, Text, FlatList, } from 'react-native';
-import { List, ListItem, Card, Button, Image } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import { List, ListItem, Card, Button, Image ,Icon} from 'react-native-elements';
 import data from '../../data/posts.json';
 const list = [
     {
@@ -45,9 +44,9 @@ export default class Home extends Component {
                 <Text style={styles.text}>{item.text}</Text>
                 <Text style={styles.text}>{item.likes.length} likes</Text>
                 <View style={styles.iconContainer}>
-                    <Icon name='heart' style={styles.icon} size={30} color='#333' />
-                    <Icon name='heart' style={styles.icon} size={30} color='#cc0000' solid />
-                    <Icon name="comment" style={styles.icon} size={30} solid />
+                    <Icon name='heart' type="font-awesome" style={styles.icon} size={30} color='red' />
+                    <Icon name='heart-o' type="font-awesome"  style={styles.icon} size={30} color='#333' solid />
+                    <Icon name="comment-o" type="font-awesome" style={styles.icon} size={30} solid />
                 </View>
             </Card>
         )
@@ -72,5 +71,5 @@ export default class Home extends Component {
             justifyContent: 'flex-start'
         },
         icon: { margin: 5 },
-        text: { marginBottom: 10, marginTop: 10, fontSize: 22 }
+        text: { marginBottom: 10, marginTop: 10, fontSize: 20 }
     })

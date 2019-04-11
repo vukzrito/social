@@ -22,8 +22,9 @@ const TabNavigator = createBottomTabNavigator({
   Home: Home,
   Search: Search,
   SelectImage: SelectImage,
-  Settings: Settings,
-  Notifications: Notifications
+  Notifications: Notifications,
+  Settings: Settings
+  
 }, {
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
@@ -42,29 +43,30 @@ const TabNavigator = createBottomTabNavigator({
             iconName = `plus-square`;
             break;
           case 'Settings':
-            iconName = `cog`;
+            iconName = `user`;
             break;
           case 'Notifications':
-            iconName = `bell`;
+            iconName = `heart`;
             break
         }
 
         // You can return any component that you like here!
-        return <Icon name={iconName} type='font-awesome' size={40} color={tintColor} solid/>;
+        return <Icon name={iconName} reverseColor='red' type='feather' size={35} color={tintColor} solid/>;
       },
     }),
     tabBarOptions: {
       activeTintColor: 'black',
       inactiveTintColor: 'grey',
       showLabel: false, style: {
-        height: 70
+        height: 50
       }
     },
   });
 const stackNavigator = createStackNavigator({
   root: {
     screen: TabNavigator, navigationOptions: ({ navigation }) => ({
-      title: navigation.state.routes[navigation.state.index].routeName
+      title: navigation.state.routes[navigation.state.index].routeName,
+      
     })
   }
 })
